@@ -1,0 +1,31 @@
+﻿Build started 4/2/2017 11:21:04 PM.
+     1>Project "D:\TomoSoft\Write Some Software\BudgieAppQT\BudgieAppQT\BudgieAppQT.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\BudgieAppQT.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Uic'ing budgieappqt.ui...
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\GeneratedFiles /Ic:\qt\4.7.1\include /I.\GeneratedFiles\Debug /Ic:\qt\4.7.1\include\qtmain /Ic:\qt\4.7.1\include\QtCore /Ic:\qt\4.7.1\include\QtGui /I.\ /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_CORE_LIB /D QT_GUI_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GeneratedFiles\Debug\moc_budgieappqt.cpp budgieappqt.cpp main.cpp
+         moc_budgieappqt.cpp
+         budgieappqt.cpp
+         main.cpp
+         Generating Code...
+         All outputs are up-to-date.
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\TomoSoft\Write Some Software\BudgieAppQT\\BudgieAppQT.exe" /NOLOGO /LIBPATH:c:\qt\4.7.1\lib qtmaind.lib QtCored4.lib QtGuid4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\BudgieAppQT.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\TomoSoft\Write Some Software\BudgieAppQT\BudgieAppQT.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\TomoSoft\Write Some Software\BudgieAppQT\BudgieAppQT.lib" /MACHINE:X86 Debug\budgieappqt.obj
+         Debug\moc_budgieappqt.obj
+         Debug\qrc_budgieappqt.obj
+         Debug\main.obj
+         Debug\UserData.obj
+         LINK : D:\TomoSoft\Write Some Software\BudgieAppQT\\BudgieAppQT.exe not found or not built by the last incremental link; performing full link
+         BudgieAppQT.vcxproj -> D:\TomoSoft\Write Some Software\BudgieAppQT\BudgieAppQT.exe
+       Manifest:
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\TomoSoft\Write Some Software\BudgieAppQT\\BudgieAppQT.exe;#1" /manifest Debug\BudgieAppQT.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\BudgieAppQT.unsuccessfulbuild".
+         Touching "Debug\BudgieAppQT.lastbuildstate".
+     1>Done Building Project "D:\TomoSoft\Write Some Software\BudgieAppQT\BudgieAppQT\BudgieAppQT.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.89
