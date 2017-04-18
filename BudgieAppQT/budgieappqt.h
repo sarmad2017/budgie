@@ -5,21 +5,33 @@
 #include "ui_budgieappqt.h"
 #include "UserData.h"
 
-class BudgieAppQT : public QMainWindow
+class BudgieAPPQT : public QMainWindow
 {
 	Q_OBJECT
 
 public:
-	BudgieAppQT(QWidget *parent = 0, Qt::WFlags flags = 0);
-	void setUserData(UserData* userData);
-	~BudgieAppQT();
+	BudgieAPPQT(QWidget *parent = 0, Qt::WFlags flags = 0);
+	~BudgieAPPQT();
 
 private:
-	Ui::BudgieAppQTClass ui;
-	UserData* data;
+	Ui::BudgieAPPQTClass ui;
+	UserData* userData;
 
 private slots:
-	void handleButton();
+	void handleSubmitInfoButton();
+	void handleLoanCalculatorButton();
+	void handleTransportationCostButton();
+	void handleSaverButton();
+	void handleRentRadioButton();
+	void handleOwnRadioButton();
+	void handleDailyButton();
+	void handleWeeklyButton();
+	void handleMonthlyButton();
+	void handleTransportationCostBackButton();
+	void handleTransportationCostNextButton();
+	void handleCalenderButton();
+	void handleCalender();
+	void handleSaveButton();
 };
 
 #endif // BUDGIEAPPQT_H

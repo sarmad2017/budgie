@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BudgieAppQT", "BudgieAppQT\BudgieAppQT.vcxproj", "{148AB9E2-BD1C-4869-B107-A1C34CD15FF9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BudgieAPPQT", "BudgieAPPQT\BudgieAPPQT.vcxproj", "{9CF448DD-C4E8-4E4C-B2EE-CB8F82C0DA87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{148AB9E2-BD1C-4869-B107-A1C34CD15FF9}.Debug|Win32.ActiveCfg = Debug|Win32
-		{148AB9E2-BD1C-4869-B107-A1C34CD15FF9}.Debug|Win32.Build.0 = Debug|Win32
-		{148AB9E2-BD1C-4869-B107-A1C34CD15FF9}.Release|Win32.ActiveCfg = Release|Win32
-		{148AB9E2-BD1C-4869-B107-A1C34CD15FF9}.Release|Win32.Build.0 = Release|Win32
+		{9CF448DD-C4E8-4E4C-B2EE-CB8F82C0DA87}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9CF448DD-C4E8-4E4C-B2EE-CB8F82C0DA87}.Debug|Win32.Build.0 = Debug|Win32
+		{9CF448DD-C4E8-4E4C-B2EE-CB8F82C0DA87}.Release|Win32.ActiveCfg = Release|Win32
+		{9CF448DD-C4E8-4E4C-B2EE-CB8F82C0DA87}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

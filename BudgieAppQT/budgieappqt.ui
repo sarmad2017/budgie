@@ -1,31 +1,708 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>BudgieAppQTClass</class>
- <widget class="QMainWindow" name="BudgieAppQTClass">
+ <class>BudgieAPPQTClass</class>
+ <widget class="QMainWindow" name="BudgieAPPQTClass">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>400</height>
+    <height>500</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>600</width>
+    <height>500</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>BudgieAppQT</string>
+   <string>BudgieAPPQT</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label">
+   <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>10</y>
-      <width>191</width>
-      <height>51</height>
+      <x>0</x>
+      <y>100</y>
+      <width>600</width>
+      <height>360</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="inputPage">
+     <widget class="QLabel" name="incomeLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>40</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Enter Monthly Income</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="livingExpenseLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>80</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Enter Monthly Living Expense</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="billsExpenseLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>120</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Enter Monthly Bills Expense</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="otherExpenseLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>160</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Enter Any Other Monthly Expense</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="incomeValue">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>40</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="livingExpenseValue">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>80</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="billsExpenseValue">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>120</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="otherExpenseValue">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>160</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="submitInfoButton">
+      <property name="geometry">
+       <rect>
+        <x>225</x>
+        <y>320</y>
+        <width>150</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Submit Information</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="displayPage">
+     <widget class="QLabel" name="totalIncomeLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>40</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Yearly Total Income</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="monthlyExpenseLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>80</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Monthly Total Expense</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="yearlyExpenseLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>120</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Yearly Total Expense</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="totalIncomeValue">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>40</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="yearlyExpenseValue">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>120</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="monthlyExpenseValue">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>80</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="loanCalculatorButton">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>320</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Loan Calculator</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="transportationCostButton">
+      <property name="geometry">
+       <rect>
+        <x>225</x>
+        <y>320</y>
+        <width>150</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Transportation Cost</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="saverButton">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>320</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Saver</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="transportationCostPage">
+     <widget class="QLabel" name="costPerGallonLabel">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>180</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Cost per gallon</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="distanceTravelledLabel">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>220</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Distance traveled</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="distanceTravelledValue">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>220</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="monthlyRentalValue">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>100</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="monthlyRentalLabel">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>100</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>How much per minth ($)</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="milePerGallonValue">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>140</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="milePerGallonLabel">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>140</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Mile per gallon</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="costPerGallonValue">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>180</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="carTypeLabel">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>60</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Car Type</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="carTypeRent">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>60</y>
+        <width>50</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Rent</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="carTypeOwn">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>60</y>
+        <width>50</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Own</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="traveledCostValue">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>260</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="traveledCostLabel">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>260</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Traveled Cost</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="dailyButton">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>320</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Daily</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="weeklyButton">
+      <property name="geometry">
+       <rect>
+        <x>275</x>
+        <y>320</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Weekly</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="monthlyButton">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>320</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Monthly</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="transportationCostBackButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>50</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Back</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="transportationCostNextButton">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>10</y>
+        <width>50</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page">
+     <widget class="QLabel" name="amountNeededLabel">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>80</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Amount Needed</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dueDateLabel">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>120</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Due Date</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="savingLabel">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>160</y>
+        <width>180</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Your Daily Saving Must Be</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+      <property name="indent">
+       <number>-1</number>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="amountNeededValue">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>80</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="savingValue">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>160</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="dueDateValue">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>120</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="dateTime">
+       <datetime>
+        <hour>0</hour>
+        <minute>0</minute>
+        <second>0</second>
+        <year>2000</year>
+        <month>1</month>
+        <day>1</day>
+       </datetime>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="calenderButton">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>120</y>
+        <width>20</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCalendarWidget" name="calender">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>140</y>
+        <width>250</width>
+        <height>155</height>
+       </rect>
+      </property>
+      <property name="gridVisible">
+       <bool>false</bool>
+      </property>
+      <property name="horizontalHeaderFormat">
+       <enum>QCalendarWidget::ShortDayNames</enum>
+      </property>
+      <property name="verticalHeaderFormat">
+       <enum>QCalendarWidget::NoVerticalHeader</enum>
+      </property>
+      <property name="navigationBarVisible">
+       <bool>true</bool>
+      </property>
+      <property name="dateEditEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>275</x>
+        <y>320</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="heading">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>600</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>24</pointsize>
+      <family>Roboto Slab</family>
+      <pointsize>28</pointsize>
      </font>
     </property>
     <property name="text">
@@ -35,127 +712,25 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="subHeading">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>140</y>
-      <width>111</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Enter Monthly Income:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="monthlyIncome">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>140</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>290</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>170</y>
-      <width>151</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Enter Monthly Living Expense:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>200</y>
-      <width>141</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Enter Monthly Bills Expense:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>230</y>
-      <width>171</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Enter Any Other Monthly Expense:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="monthlyLivingExpense">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>170</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="monthlyBillExpense">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>200</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="monthlyOtherExpense">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>230</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>70</y>
-      <width>171</width>
+      <x>0</x>
+      <y>60</y>
+      <width>600</width>
       <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <family>Rod</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
-     <string>Finance Made Symple</string>
+     <string>Finance Made Simple</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -184,14 +759,264 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
-  <tabstop>monthlyIncome</tabstop>
-  <tabstop>monthlyLivingExpense</tabstop>
-  <tabstop>monthlyBillExpense</tabstop>
-  <tabstop>monthlyOtherExpense</tabstop>
-  <tabstop>pushButton</tabstop>
+  <tabstop>incomeValue</tabstop>
+  <tabstop>livingExpenseValue</tabstop>
+  <tabstop>billsExpenseValue</tabstop>
+  <tabstop>otherExpenseValue</tabstop>
+  <tabstop>submitInfoButton</tabstop>
+  <tabstop>carTypeRent</tabstop>
+  <tabstop>carTypeOwn</tabstop>
+  <tabstop>monthlyRentalValue</tabstop>
+  <tabstop>milePerGallonValue</tabstop>
+  <tabstop>costPerGallonValue</tabstop>
+  <tabstop>distanceTravelledValue</tabstop>
+  <tabstop>saverButton</tabstop>
+  <tabstop>transportationCostButton</tabstop>
+  <tabstop>loanCalculatorButton</tabstop>
  </tabstops>
  <resources>
   <include location="budgieappqt.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>submitInfoButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleSubmitInfoButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>318</x>
+     <y>467</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>487</x>
+     <y>116</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>loanCalculatorButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleLoanCalculatorButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>467</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>transportationCostButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleTransportationCostButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>467</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saverButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleSaverButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>509</x>
+     <y>467</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>carTypeRent</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleRentRadioButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>294</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>carTypeOwn</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleOwnRadioButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>354</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dailyButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleDailyButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>164</x>
+     <y>467</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>weeklyButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleWeeklyButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>467</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>monthlyButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleMonthlyButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>424</x>
+     <y>467</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>transportationCostBackButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleTransportationCostBackButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>34</x>
+     <y>152</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>transportationCostNextButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleTransportationCostNextButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>152</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>calender</sender>
+   <signal>clicked(QDate)</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleCalender()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>294</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>calenderButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleCalenderButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>409</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saverButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleSaveButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>509</x>
+     <y>467</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>handleSubmitInfoButton()</slot>
+  <slot>handleLoanCalculatorButton()</slot>
+  <slot>handleTransportationCostButton()</slot>
+  <slot>handleSaverButton()</slot>
+  <slot>handleRentRadioButton()</slot>
+  <slot>handleOwnRadioButton()</slot>
+  <slot>handleDailyButton()</slot>
+  <slot>handleWeeklyButton()</slot>
+  <slot>handleMonthlyButton()</slot>
+  <slot>handleTransportationCostBackButton()</slot>
+  <slot>handleTransportationCostNextButton()</slot>
+  <slot>handleCalenderButton()</slot>
+  <slot>handleCalender()</slot>
+  <slot>handleSaveButton()</slot>
+ </slots>
 </ui>

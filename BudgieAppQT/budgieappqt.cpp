@@ -1,27 +1,133 @@
 #include "budgieappqt.h"
 
-BudgieAppQT::BudgieAppQT(QWidget *parent, Qt::WFlags flags)
+BudgieAPPQT::BudgieAPPQT(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags)
 {
 	ui.setupUi(this);
-	connect(ui.pushButton, SIGNAL (released()), this, SLOT (handleButton()));
+	userData = new UserData();
+	/*if(userData)
+	{
+		ui.incomeValue->setText(QString::number(userData->getMonthlyIncome()));
+		ui.livingExpenseValue->setText(QString::number(userData->getMonthlyLivingExpense()));
+		ui.billsExpenseValue->setText(QString::number(userData->getMonthlyBillExpense()));
+		ui.otherExpenseValue->setText(QString::number(userData->getMonthlyOtherExpense()));
+	}*/
 }
 
-void BudgieAppQT::setUserData(UserData* userData)
+BudgieAPPQT::~BudgieAPPQT()
 {
-	data = userData;
+
 }
 
-BudgieAppQT::~BudgieAppQT()
+void BudgieAPPQT::handleSubmitInfoButton()
 {
-	
+	userData->setMonthlyIncome(ui.incomeValue->text().toDouble());
+	userData->setMonthlyLivingExpense(ui.livingExpenseValue->text().toDouble());
+	userData->setMonthlyBillExpense(ui.billsExpenseValue->text().toDouble());
+	userData->setMonthlyOtherExpense(ui.otherExpenseValue->text().toDouble());
+
+	ui.totalIncomeValue->setText("$ "+QString::number(userData->getMonthlyIncome()*12));
+	ui.monthlyExpenseValue->setText("$ "+QString::number(userData->getMonthlyLivingExpense() + userData->getMonthlyBillExpense() + userData->getMonthlyOtherExpense()));
+	ui.yearlyExpenseValue->setText("$ "+QString::number((userData->getMonthlyLivingExpense() + userData->getMonthlyBillExpense() + userData->getMonthlyOtherExpense())*12));
+
+	ui.stackedWidget->setCurrentIndex(1);
 }
 
-void BudgieAppQT::handleButton()
+
+void BudgieAPPQT::handleLoanCalculatorButton()
 {
-	data->setMonthlyIncome((ui.monthlyIncome->text()).toDouble());
-	data->setMonthlyLivingExpense((ui.monthlyLivingExpense->text()).toDouble());
-	data->setMonthlyBillExpense((ui.monthlyBillExpense->text()).toDouble());
-	data->setMonthlyOtherExpense((ui.monthlyOtherExpense->text()).toDouble());
-	ui.pushButton->setText(QString::number(data->getMonthlyBillExpense()));
+	ui.loanCalculatorButton->setText("Done");
+}
+
+void BudgieAPPQT::handleTransportationCostButton()
+{
+	ui.carTypeRent->setChecked(true);
+	ui.stackedWidget->setCurrentIndex(2);
+}
+
+void BudgieAPPQT::handleSaverButton()
+{
+	ui.calender->hide();
+	ui.dueDateValue->setDate(QDate::currentDate());
+	ui.stackedWidget->setCurrentIndex(3);
+}
+
+void BudgieAPPQT::handleRentRadioButton()
+{
+	ui.monthlyRentalLabel->show();
+	ui.monthlyRentalValue->show();
+	ui.milePerGallonLabel->move(ui.milePerGallonLabel->x(),ui.milePerGallonLabel->y()+40);
+	ui.milePerGallonValue->move(ui.milePerGallonValue->x(),ui.milePerGallonValue->y()+40);
+	ui.costPerGallonLabel->move(ui.costPerGallonLabel->x(),ui.costPerGallonLabel->y()+40);
+	ui.costPerGallonValue->move(ui.costPerGallonValue->x(),ui.costPerGallonValue->y()+40);
+	ui.distanceTravelledLabel->move(ui.distanceTravelledLabel->x(),ui.distanceTravelledLabel->y()+40);
+	ui.distanceTravelledValue->move(ui.distanceTravelledValue->x(),ui.distanceTravelledValue->y()+40);
+}
+
+void BudgieAPPQT::handleOwnRadioButton()
+{
+	ui.monthlyRentalLabel->hide();
+	ui.monthlyRentalValue->hide();
+	ui.milePerGallonLabel->move(ui.milePerGallonLabel->x(),ui.milePerGallonLabel->y()-40);
+	ui.milePerGallonValue->move(ui.milePerGallonValue->x(),ui.milePerGallonValue->y()-40);
+	ui.costPerGallonLabel->move(ui.costPerGallonLabel->x(),ui.costPerGallonLabel->y()-40);
+	ui.costPerGallonValue->move(ui.costPerGallonValue->x(),ui.costPerGallonValue->y()-40);
+	ui.distanceTravelledLabel->move(ui.distanceTravelledLabel->x(),ui.distanceTravelledLabel->y()-40);
+	ui.distanceTravelledValue->move(ui.distanceTravelledValue->x(),ui.distanceTravelledValue->y()-40);
+}
+
+void BudgieAPPQT::handleDailyButton()
+{
+	double monthlyRental = 0;
+	if(ui.monthlyRentalValue->isEnabled())
+	{
+		monthlyRental = ui.monthlyRentalValue->text().toDouble();
+	}
+	ui.traveledCostValue->setText(QString::number((monthlyRental/30) + (ui.costPerGallonValue->text().toDouble()*ui.distanceTravelledValue->text().toDouble())/ui.milePerGallonValue->text().toDouble()));
+}
+
+void BudgieAPPQT::handleWeeklyButton()
+{
+	double monthlyRental = 0;
+	if(!ui.monthlyRentalValue->isHidden())
+	{
+		monthlyRental = ui.monthlyRentalValue->text().toDouble();
+	}
+	ui.traveledCostValue->setText(QString::number(((monthlyRental/30) + (ui.costPerGallonValue->text().toDouble()*ui.distanceTravelledValue->text().toDouble())/ui.milePerGallonValue->text().toDouble())*7));
+}
+
+void BudgieAPPQT::handleMonthlyButton()
+{
+	double monthlyRental = 0;
+	if(!ui.monthlyRentalValue->isHidden())
+	{
+		monthlyRental = ui.monthlyRentalValue->text().toDouble();
+	}
+	ui.traveledCostValue->setText(QString::number(((monthlyRental/30) + (ui.costPerGallonValue->text().toDouble()*ui.distanceTravelledValue->text().toDouble())/ui.milePerGallonValue->text().toDouble())*30));
+}
+
+void BudgieAPPQT::handleTransportationCostBackButton()
+{
+	ui.stackedWidget->setCurrentIndex(1);
+}
+
+void BudgieAPPQT::handleTransportationCostNextButton()
+{
+
+}
+
+void BudgieAPPQT::handleCalenderButton()
+{
+	ui.calender->show();
+}
+
+void BudgieAPPQT::handleCalender()
+{
+	ui.dueDateValue->setDate(ui.calender->selectedDate());
+	ui.calender->hide();
+}
+
+void BudgieAPPQT::handleSaveButton()
+{
+
 }
