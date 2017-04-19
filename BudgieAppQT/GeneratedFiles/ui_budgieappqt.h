@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'budgieappqt.ui'
 **
-** Created: Thu Apr 6 15:19:45 2017
+** Created: Tue Apr 11 00:59:26 2017
 **      by: Qt User Interface Compiler version 4.7.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -35,6 +35,10 @@ class Ui_BudgieAPPQTClass
 public:
     QWidget *centralWidget;
     QStackedWidget *stackedWidget;
+    QWidget *homePage;
+    QLabel *emailLabel;
+    QLineEdit *emailValue;
+    QPushButton *launchButton;
     QWidget *inputPage;
     QLabel *incomeLabel;
     QLabel *livingExpenseLabel;
@@ -102,6 +106,20 @@ public:
         stackedWidget = new QStackedWidget(centralWidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
         stackedWidget->setGeometry(QRect(0, 100, 600, 360));
+        homePage = new QWidget();
+        homePage->setObjectName(QString::fromUtf8("homePage"));
+        emailLabel = new QLabel(homePage);
+        emailLabel->setObjectName(QString::fromUtf8("emailLabel"));
+        emailLabel->setGeometry(QRect(60, 60, 150, 20));
+        emailLabel->setLayoutDirection(Qt::LeftToRight);
+        emailLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        emailValue = new QLineEdit(homePage);
+        emailValue->setObjectName(QString::fromUtf8("emailValue"));
+        emailValue->setGeometry(QRect(220, 60, 200, 20));
+        launchButton = new QPushButton(homePage);
+        launchButton->setObjectName(QString::fromUtf8("launchButton"));
+        launchButton->setGeometry(QRect(275, 320, 50, 30));
+        stackedWidget->addWidget(homePage);
         inputPage = new QWidget();
         inputPage->setObjectName(QString::fromUtf8("inputPage"));
         incomeLabel = new QLabel(inputPage);
@@ -337,6 +355,7 @@ public:
         QObject::connect(calender, SIGNAL(clicked(QDate)), BudgieAPPQTClass, SLOT(handleCalender()));
         QObject::connect(calenderButton, SIGNAL(released()), BudgieAPPQTClass, SLOT(handleCalenderButton()));
         QObject::connect(saverButton, SIGNAL(released()), BudgieAPPQTClass, SLOT(handleSaveButton()));
+        QObject::connect(launchButton, SIGNAL(released()), BudgieAPPQTClass, SLOT(handleLaunchButton()));
 
         stackedWidget->setCurrentIndex(0);
 
@@ -347,6 +366,8 @@ public:
     void retranslateUi(QMainWindow *BudgieAPPQTClass)
     {
         BudgieAPPQTClass->setWindowTitle(QApplication::translate("BudgieAPPQTClass", "BudgieAPPQT", 0, QApplication::UnicodeUTF8));
+        emailLabel->setText(QApplication::translate("BudgieAPPQTClass", "Enter Your Email", 0, QApplication::UnicodeUTF8));
+        launchButton->setText(QApplication::translate("BudgieAPPQTClass", "Launch", 0, QApplication::UnicodeUTF8));
         incomeLabel->setText(QApplication::translate("BudgieAPPQTClass", "Enter Monthly Income", 0, QApplication::UnicodeUTF8));
         livingExpenseLabel->setText(QApplication::translate("BudgieAPPQTClass", "Enter Monthly Living Expense", 0, QApplication::UnicodeUTF8));
         billsExpenseLabel->setText(QApplication::translate("BudgieAPPQTClass", "Enter Monthly Bills Expense", 0, QApplication::UnicodeUTF8));

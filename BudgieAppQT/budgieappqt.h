@@ -32,6 +32,7 @@ private slots:
 	void handleCalenderButton();
 	void handleCalender();
 	void handleSaveButton();
+	void handleLaunchButton();
 };
 
 #endif // BUDGIEAPPQT_H

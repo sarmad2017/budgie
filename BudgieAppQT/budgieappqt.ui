@@ -38,6 +38,50 @@
     <property name="currentIndex">
      <number>0</number>
     </property>
+    <widget class="QWidget" name="homePage">
+     <widget class="QLabel" name="emailLabel">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>60</y>
+        <width>150</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>Enter Your Email</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="emailValue">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>60</y>
+        <width>200</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="launchButton">
+      <property name="geometry">
+       <rect>
+        <x>275</x>
+        <y>320</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Launch</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="inputPage">
      <widget class="QLabel" name="incomeLabel">
       <property name="geometry">
@@ -1002,6 +1046,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>launchButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleLaunchButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>467</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>handleSubmitInfoButton()</slot>
@@ -1018,5 +1078,6 @@
   <slot>handleCalenderButton()</slot>
   <slot>handleCalender()</slot>
   <slot>handleSaveButton()</slot>
+  <slot>handleLaunchButton()</slot>
  </slots>
 </ui>

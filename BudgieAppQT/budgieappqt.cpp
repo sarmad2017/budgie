@@ -1,4 +1,7 @@
 #include "budgieappqt.h"
+#include <iostream>
+#include <fstream>
+#include <qfile.h>
 
 BudgieAPPQT::BudgieAPPQT(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags)
@@ -30,7 +33,7 @@ void BudgieAPPQT::handleSubmitInfoButton()
 	ui.monthlyExpenseValue->setText("$ "+QString::number(userData->getMonthlyLivingExpense() + userData->getMonthlyBillExpense() + userData->getMonthlyOtherExpense()));
 	ui.yearlyExpenseValue->setText("$ "+QString::number((userData->getMonthlyLivingExpense() + userData->getMonthlyBillExpense() + userData->getMonthlyOtherExpense())*12));
 
-	ui.stackedWidget->setCurrentIndex(1);
+	ui.stackedWidget->setCurrentIndex(2);
 }
 
 
@@ -42,14 +45,14 @@ void BudgieAPPQT::handleLoanCalculatorButton()
 void BudgieAPPQT::handleTransportationCostButton()
 {
 	ui.carTypeRent->setChecked(true);
-	ui.stackedWidget->setCurrentIndex(2);
+	ui.stackedWidget->setCurrentIndex(3);
 }
 
 void BudgieAPPQT::handleSaverButton()
 {
 	ui.calender->hide();
 	ui.dueDateValue->setDate(QDate::currentDate());
-	ui.stackedWidget->setCurrentIndex(3);
+	ui.stackedWidget->setCurrentIndex(4);
 }
 
 void BudgieAPPQT::handleRentRadioButton()
@@ -108,7 +111,7 @@ void BudgieAPPQT::handleMonthlyButton()
 
 void BudgieAPPQT::handleTransportationCostBackButton()
 {
-	ui.stackedWidget->setCurrentIndex(1);
+	ui.stackedWidget->setCurrentIndex(2);
 }
 
 void BudgieAPPQT::handleTransportationCostNextButton()
@@ -130,4 +133,23 @@ void BudgieAPPQT::handleCalender()
 void BudgieAPPQT::handleSaveButton()
 {
 
+}
+
+void BudgieAPPQT::handleLaunchButton()
+{
+	QString filename = ui.emailValue->text();
+	if(filename != "")
+	{
+		QFile myFile(filename);
+
+		if(myFile.open(QIODevice::WriteOnly | QIODevice::Text ))
+		{
+			std::cout << "File Has Been Created" << std::endl;
+			ui.stackedWidget->setCurrentIndex(1);
+		}
+		else
+		{
+			std::cout << "Failed to Create File" << std::endl;
+		}
+	}
 }

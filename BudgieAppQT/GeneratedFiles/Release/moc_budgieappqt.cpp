@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'budgieappqt.h'
 **
-** Created: Wed Apr 5 16:33:18 2017
+** Created: Tue Apr 11 00:59:26 2017
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_BudgieAPPQT[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,12 +32,35 @@ static const uint qt_meta_data_BudgieAPPQT[] = {
 
  // slots: signature, parameters, type, tag, flags
       13,   12,   12,   12, 0x08,
+      38,   12,   12,   12, 0x08,
+      67,   12,   12,   12, 0x08,
+     100,   12,   12,   12, 0x08,
+     120,   12,   12,   12, 0x08,
+     144,   12,   12,   12, 0x08,
+     167,   12,   12,   12, 0x08,
+     187,   12,   12,   12, 0x08,
+     208,   12,   12,   12, 0x08,
+     230,   12,   12,   12, 0x08,
+     267,   12,   12,   12, 0x08,
+     304,   12,   12,   12, 0x08,
+     327,   12,   12,   12, 0x08,
+     344,   12,   12,   12, 0x08,
+     363,   12,   12,   12, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_BudgieAPPQT[] = {
     "BudgieAPPQT\0\0handleSubmitInfoButton()\0"
+    "handleLoanCalculatorButton()\0"
+    "handleTransportationCostButton()\0"
+    "handleSaverButton()\0handleRentRadioButton()\0"
+    "handleOwnRadioButton()\0handleDailyButton()\0"
+    "handleWeeklyButton()\0handleMonthlyButton()\0"
+    "handleTransportationCostBackButton()\0"
+    "handleTransportationCostNextButton()\0"
+    "handleCalenderButton()\0handleCalender()\0"
+    "handleSaveButton()\0handleLaunchButton()\0"
 };
 
 const QMetaObject BudgieAPPQT::staticMetaObject = {
@@ -70,9 +93,23 @@ int BudgieAPPQT::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: handleSubmitInfoButton(); break;
+        case 1: handleLoanCalculatorButton(); break;
+        case 2: handleTransportationCostButton(); break;
+        case 3: handleSaverButton(); break;
+        case 4: handleRentRadioButton(); break;
+        case 5: handleOwnRadioButton(); break;
+        case 6: handleDailyButton(); break;
+        case 7: handleWeeklyButton(); break;
+        case 8: handleMonthlyButton(); break;
+        case 9: handleTransportationCostBackButton(); break;
+        case 10: handleTransportationCostNextButton(); break;
+        case 11: handleCalenderButton(); break;
+        case 12: handleCalender(); break;
+        case 13: handleSaveButton(); break;
+        case 14: handleLaunchButton(); break;
         default: ;
         }
-        _id -= 1;
+        _id -= 15;
     }
     return _id;
 }
