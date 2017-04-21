@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'budgieappqt.ui'
 **
-** Created: Tue Apr 11 00:59:26 2017
+** Created: Thu Apr 13 07:21:47 2017
 **      by: Qt User Interface Compiler version 4.7.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -87,7 +87,7 @@ public:
     QDateEdit *dueDateValue;
     QPushButton *calenderButton;
     QCalendarWidget *calender;
-    QPushButton *pushButton;
+    QPushButton *saveButton;
     QLabel *heading;
     QLabel *subHeading;
     QMenuBar *menuBar;
@@ -293,9 +293,9 @@ public:
         calender->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
         calender->setNavigationBarVisible(true);
         calender->setDateEditEnabled(true);
-        pushButton = new QPushButton(page);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(275, 320, 50, 30));
+        saveButton = new QPushButton(page);
+        saveButton->setObjectName(QString::fromUtf8("saveButton"));
+        saveButton->setGeometry(QRect(275, 320, 50, 30));
         stackedWidget->addWidget(page);
         heading = new QLabel(centralWidget);
         heading->setObjectName(QString::fromUtf8("heading"));
@@ -354,7 +354,7 @@ public:
         QObject::connect(transportationCostNextButton, SIGNAL(released()), BudgieAPPQTClass, SLOT(handleTransportationCostNextButton()));
         QObject::connect(calender, SIGNAL(clicked(QDate)), BudgieAPPQTClass, SLOT(handleCalender()));
         QObject::connect(calenderButton, SIGNAL(released()), BudgieAPPQTClass, SLOT(handleCalenderButton()));
-        QObject::connect(saverButton, SIGNAL(released()), BudgieAPPQTClass, SLOT(handleSaveButton()));
+        QObject::connect(saveButton, SIGNAL(released()), BudgieAPPQTClass, SLOT(handleSaveButton()));
         QObject::connect(launchButton, SIGNAL(released()), BudgieAPPQTClass, SLOT(handleLaunchButton()));
 
         stackedWidget->setCurrentIndex(0);
@@ -399,7 +399,7 @@ public:
         dueDateLabel->setText(QApplication::translate("BudgieAPPQTClass", "Due Date", 0, QApplication::UnicodeUTF8));
         savingLabel->setText(QApplication::translate("BudgieAPPQTClass", "Your Daily Saving Must Be", 0, QApplication::UnicodeUTF8));
         calenderButton->setText(QString());
-        pushButton->setText(QApplication::translate("BudgieAPPQTClass", "Save", 0, QApplication::UnicodeUTF8));
+        saveButton->setText(QApplication::translate("BudgieAPPQTClass", "Save", 0, QApplication::UnicodeUTF8));
         heading->setText(QApplication::translate("BudgieAPPQTClass", "Budgie App", 0, QApplication::UnicodeUTF8));
         subHeading->setText(QApplication::translate("BudgieAPPQTClass", "Finance Made Simple", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

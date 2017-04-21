@@ -1,4 +1,4 @@
-﻿Build started 4/11/2017 12:59:26 AM.
+﻿Build started 4/13/2017 7:21:46 AM.
      1>Project "D:\TomoSoft\BudgieAPPQT\BudgieAPPQT\BudgieAPPQT.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Release\BudgieAPPQT.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -9,10 +9,11 @@
      1>RCC : warning : No resources in 'D:\TomoSoft\BudgieAPPQT\BudgieAPPQT\budgieappqt.qrc'.
          
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\GeneratedFiles /IC:\Qt\4.7.1\include /I.\GeneratedFiles\Release /IC:\Qt\4.7.1\include\qtmain /IC:\Qt\4.7.1\include\QtCore /IC:\Qt\4.7.1\include\QtGui /I.\ /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GeneratedFiles\Release\moc_budgieappqt.cpp budgieappqt.cpp main.cpp
-         moc_budgieappqt.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\GeneratedFiles /IC:\Qt\4.7.1\include /I.\GeneratedFiles\Release /IC:\Qt\4.7.1\include\qtmain /IC:\Qt\4.7.1\include\QtCore /IC:\Qt\4.7.1\include\QtGui /I.\ /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt budgieappqt.cpp GeneratedFiles\Release\moc_budgieappqt.cpp main.cpp UserData.cpp
          budgieappqt.cpp
+         moc_budgieappqt.cpp
          main.cpp
+         UserData.cpp
          Generating Code...
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\GeneratedFiles /IC:\Qt\4.7.1\include /I.\GeneratedFiles\Release /IC:\Qt\4.7.1\include\qtmain /IC:\Qt\4.7.1\include\QtCore /IC:\Qt\4.7.1\include\QtGui /I.\ /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GeneratedFiles\qrc_budgieappqt.cpp
          qrc_budgieappqt.cpp
@@ -32,4 +33,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.11
+Time Elapsed 00:00:03.50

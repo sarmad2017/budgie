@@ -719,7 +719,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="saveButton">
       <property name="geometry">
        <rect>
         <x>275</x>
@@ -1031,13 +1031,13 @@
    </hints>
   </connection>
   <connection>
-   <sender>saverButton</sender>
+   <sender>saveButton</sender>
    <signal>released()</signal>
    <receiver>BudgieAPPQTClass</receiver>
    <slot>handleSaveButton()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>509</x>
+     <x>299</x>
      <y>467</y>
     </hint>
     <hint type="destinationlabel">

@@ -132,7 +132,10 @@ void BudgieAPPQT::handleCalender()
 
 void BudgieAPPQT::handleSaveButton()
 {
-
+	QDate dNow(QDate::currentDate());
+    QDate dEndOfTheWord(2012, 12, 21);
+    int days = dNow.daysTo(ui.dueDateValue->date());
+	ui.savingValue->setText(QString::number(ui.amountNeededValue->text().toDouble()/days));
 }
 
 void BudgieAPPQT::handleLaunchButton()
