@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <qfile.h>
+#include <QFileInfo>
 
 BudgieAPPQT::BudgieAPPQT(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags)
@@ -140,19 +141,31 @@ void BudgieAPPQT::handleSaveButton()
 
 void BudgieAPPQT::handleLaunchButton()
 {
+	
 	QString filename = ui.emailValue->text();
 	if(filename != "")
 	{
-		QFile myFile(filename);
-
-		if(myFile.open(QIODevice::WriteOnly | QIODevice::Text ))
+		QFileInfo check_file(filename);
+		// check if file exists and if yes: Is it really a file and no directory?
+		if (check_file.exists() && check_file.isFile())
 		{
-			std::cout << "File Has Been Created" << std::endl;
-			ui.stackedWidget->setCurrentIndex(1);
+
 		}
 		else
 		{
-			std::cout << "Failed to Create File" << std::endl;
+			QFile myFile(filename);
+
+			if(myFile.open(QIODevice::Append | QIODevice::Text ))
+			{
+				std::cout << "File Has Been Created" << std::endl;
+				ui.stackedWidget->setCurrentIndex(1);
+			}
+			else
+			{
+				std::cout << "Failed to Create File" << std::endl;
+			}
 		}
+
 	}
+	
 }
