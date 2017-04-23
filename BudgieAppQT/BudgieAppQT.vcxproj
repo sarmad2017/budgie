@@ -74,6 +74,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="budgieappqt.cpp" />
+    <ClCompile Include="DataContainer.cpp" />
+    <ClCompile Include="FileIOHandler.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_budgieappqt.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -86,8 +88,11 @@
     <ClCompile Include="GeneratedFiles\Release\moc_budgieappqt.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="IOHandler.cpp" />
+    <ClCompile Include="IOHandlerFactory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="UserData.cpp" />
+    <ClCompile Include="XMLParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="budgieappqt.h">
@@ -115,8 +120,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataContainer.h" />
+    <ClInclude Include="FileIOHandler.h" />
     <ClInclude Include="GeneratedFiles\ui_budgieappqt.h" />
+    <ClInclude Include="IOHandler.h" />
+    <ClInclude Include="IOHandlerFactory.h" />
     <ClInclude Include="UserData.h" />
+    <ClInclude Include="XMLParser.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="budgieappqt.qrc">

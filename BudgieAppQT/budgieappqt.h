@@ -4,6 +4,7 @@
 #include <QtGui/QMainWindow>
 #include "ui_budgieappqt.h"
 #include "UserData.h"
+#include <IOHandlerFactory.h>
 
 class BudgieAPPQT : public QMainWindow
 {
@@ -16,6 +17,8 @@ public:
 private:
 	Ui::BudgieAPPQTClass ui;
 	UserData* userData;
+	IOHandlerFactory ioHandlerFactory;
+	IOHandler* ioHandler;
 
 private slots:
 	void handleSubmitInfoButton();

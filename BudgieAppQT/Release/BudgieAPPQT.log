@@ -1,36 +1,46 @@
-﻿Build started 4/13/2017 7:47:01 AM.
-     1>Project "D:\TomoSoft\BudgieAPPQT\BudgieAPPQT\BudgieAPPQT.vcxproj" on node 2 (build target(s)).
+﻿Build started 4/18/2017 2:11:10 AM.
+     1>Project "D:\TomoSoft\Write Some Software\BudgieAppQT\BudgieAPPQT\BudgieAPPQT.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Release\BudgieAPPQT.unsuccessfulbuild" because "AlwaysCreate" was specified.
        CustomBuild:
          Moc'ing budgieappqt.h...
          Uic'ing budgieappqt.ui...
          Rcc'ing budgieappqt.qrc...
-     1>RCC : warning : No resources in 'D:\TomoSoft\BudgieAPPQT\BudgieAPPQT\budgieappqt.qrc'.
+     1>RCC : warning : No resources in 'D:\TomoSoft\Write Some Software\BudgieAppQT\BudgieAPPQT\budgieappqt.qrc'.
          
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\GeneratedFiles /IC:\Qt\4.7.1\include /I.\GeneratedFiles\Release /IC:\Qt\4.7.1\include\qtmain /IC:\Qt\4.7.1\include\QtCore /IC:\Qt\4.7.1\include\QtGui /I.\ /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt budgieappqt.cpp GeneratedFiles\Release\moc_budgieappqt.cpp main.cpp UserData.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\GeneratedFiles /IC:\Qt\4.7.1\include /I.\GeneratedFiles\Release /IC:\Qt\4.7.1\include\qtmain /IC:\Qt\4.7.1\include\QtCore /IC:\Qt\4.7.1\include\QtGui /I.\ /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt budgieappqt.cpp DataContainer.cpp FileIOHandler.cpp GeneratedFiles\Release\moc_budgieappqt.cpp IOHandler.cpp IOHandlerFactory.cpp main.cpp UserData.cpp XMLParser.cpp
          budgieappqt.cpp
+         DataContainer.cpp
+         FileIOHandler.cpp
          moc_budgieappqt.cpp
+         IOHandler.cpp
+         IOHandlerFactory.cpp
          main.cpp
          UserData.cpp
+         XMLParser.cpp
          Generating Code...
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\GeneratedFiles /IC:\Qt\4.7.1\include /I.\GeneratedFiles\Release /IC:\Qt\4.7.1\include\qtmain /IC:\Qt\4.7.1\include\QtCore /IC:\Qt\4.7.1\include\QtGui /I.\ /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GeneratedFiles\qrc_budgieappqt.cpp
          qrc_budgieappqt.cpp
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\TomoSoft\BudgieAPPQT\\BudgieAPPQT.exe" /NOLOGO /LIBPATH:C:\Qt\4.7.1\lib qtmain.lib QtCore4.lib QtGui4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\BudgieAPPQT.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:\TomoSoft\BudgieAPPQT\BudgieAPPQT.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\TomoSoft\BudgieAPPQT\BudgieAPPQT.lib" /MACHINE:X86 Release\budgieappqt.obj
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\TomoSoft\Write Some Software\BudgieAppQT\\BudgieAPPQT.exe" /NOLOGO /LIBPATH:C:\Qt\4.7.1\lib qtmain.lib QtCore4.lib QtGui4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\BudgieAPPQT.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:\TomoSoft\Write Some Software\BudgieAppQT\BudgieAPPQT.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\TomoSoft\Write Some Software\BudgieAppQT\BudgieAPPQT.lib" /MACHINE:X86 Release\budgieappqt.obj
+         Release\DataContainer.obj
+         Release\FileIOHandler.obj
          Release\qrc_budgieappqt.obj
          Release\moc_budgieappqt.obj
+         Release\IOHandler.obj
+         Release\IOHandlerFactory.obj
          Release\main.obj
          Release\UserData.obj
-         BudgieAPPQT.vcxproj -> D:\TomoSoft\BudgieAPPQT\BudgieAPPQT.exe
+         Release\XMLParser.obj
+         BudgieAPPQT.vcxproj -> D:\TomoSoft\Write Some Software\BudgieAppQT\BudgieAPPQT.exe
        Manifest:
-         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\TomoSoft\BudgieAPPQT\\BudgieAPPQT.exe;#1" /manifest Release\BudgieAPPQT.exe.intermediate.manifest
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\TomoSoft\Write Some Software\BudgieAppQT\\BudgieAPPQT.exe;#1" /manifest Release\BudgieAPPQT.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Release\BudgieAPPQT.unsuccessfulbuild".
          Touching "Release\BudgieAPPQT.lastbuildstate".
-     1>Done Building Project "D:\TomoSoft\BudgieAPPQT\BudgieAPPQT\BudgieAPPQT.vcxproj" (build target(s)).
+     1>Done Building Project "D:\TomoSoft\Write Some Software\BudgieAppQT\BudgieAPPQT\BudgieAPPQT.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.35
+Time Elapsed 00:00:05.18

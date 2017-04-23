@@ -10,39 +10,27 @@ UserData::~UserData(void)
 {
 }
 
-void UserData::setMonthlyIncome(double income)
+void UserData::setValue(QString key, QString value)
 {
-	monthlyIncome = income;
-}
-void UserData::setMonthlyLivingExpense(double livindExpense)
-{
-	monthlyLivingExpense = livindExpense;
-}
-void UserData::setMonthlyBillExpense(double billExpense)
-{
-	monthlyBillExpense = billExpense;
-}
-void UserData::setMonthlyOtherExpense(double otherExpense)
-{
-	monthlyOtherExpense = otherExpense;
+	data[key] = value;
 }
 
-double UserData::getMonthlyIncome()
+QString UserData::getValue(QString key)
 {
-	return monthlyIncome;
+	return data[key];
 }
 
-double UserData::getMonthlyLivingExpense()
+QString UserData::toString()
 {
-	return monthlyLivingExpense;
-}
-
-double UserData::getMonthlyBillExpense()
-{
-	return monthlyBillExpense;
-}
-
-double UserData::getMonthlyOtherExpense()
-{
-	return monthlyOtherExpense;
+	QString str;
+	
+	for (QMap<QString, QString>::const_iterator it=data.constBegin(); it!=data.constEnd(); ++it)
+	{
+		if(it!=data.constBegin())
+		{
+			str += "\n";
+		}
+		str += it.key() + ":" + it.value();
+	}
+	return str;
 }

@@ -1,8 +1,6 @@
 #include "budgieappqt.h"
-#include <iostream>
-#include <fstream>
-#include <qfile.h>
-#include <QFileInfo>
+
+#include <XMLParser.h>
 
 BudgieAPPQT::BudgieAPPQT(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags)
@@ -25,15 +23,16 @@ BudgieAPPQT::~BudgieAPPQT()
 
 void BudgieAPPQT::handleSubmitInfoButton()
 {
-	userData->setMonthlyIncome(ui.incomeValue->text().toDouble());
-	userData->setMonthlyLivingExpense(ui.livingExpenseValue->text().toDouble());
-	userData->setMonthlyBillExpense(ui.billsExpenseValue->text().toDouble());
-	userData->setMonthlyOtherExpense(ui.otherExpenseValue->text().toDouble());
+	ioHandler->setValue("incomeValue", ui.incomeValue->text());
+	ioHandler->setValue("livingExpenseValue", ui.livingExpenseValue->text());
+	ioHandler->setValue("billsExpenseValue", ui.billsExpenseValue->text());
+	ioHandler->setValue("otherExpenseValue", ui.otherExpenseValue->text());
 
-	ui.totalIncomeValue->setText("$ "+QString::number(userData->getMonthlyIncome()*12));
-	ui.monthlyExpenseValue->setText("$ "+QString::number(userData->getMonthlyLivingExpense() + userData->getMonthlyBillExpense() + userData->getMonthlyOtherExpense()));
-	ui.yearlyExpenseValue->setText("$ "+QString::number((userData->getMonthlyLivingExpense() + userData->getMonthlyBillExpense() + userData->getMonthlyOtherExpense())*12));
+	ui.totalIncomeValue->setText("$ "+QString::number(ioHandler->getValue("incomeValue").toDouble()*12));
+	ui.monthlyExpenseValue->setText("$ "+QString::number(ioHandler->getValue("livingExpenseValue").toDouble() + ioHandler->getValue("billsExpenseValue").toDouble() + ioHandler->getValue("otherExpenseValue").toDouble()));
+	ui.yearlyExpenseValue->setText("$ "+QString::number((ioHandler->getValue("livingExpenseValue").toDouble() + ioHandler->getValue("billsExpenseValue").toDouble() + ioHandler->getValue("otherExpenseValue").toDouble())*12));
 
+	ioHandler->storeData();
 	ui.stackedWidget->setCurrentIndex(2);
 }
 
@@ -145,27 +144,16 @@ void BudgieAPPQT::handleLaunchButton()
 	QString filename = ui.emailValue->text();
 	if(filename != "")
 	{
-		QFileInfo check_file(filename);
-		// check if file exists and if yes: Is it really a file and no directory?
-		if (check_file.exists() && check_file.isFile())
+		
+		ioHandler = ioHandlerFactory.getIOHandler();
+		if(ioHandler->makeConnection(&filename))
 		{
-
+			ui.incomeValue->setText(ioHandler->getValue("incomeValue"));
+			ui.livingExpenseValue->setText(ioHandler->getValue("livingExpenseValue"));
+			ui.billsExpenseValue->setText(ioHandler->getValue("billsExpenseValue"));
+			ui.otherExpenseValue->setText(ioHandler->getValue("otherExpenseValue"));
+			ui.stackedWidget->setCurrentIndex(1);
 		}
-		else
-		{
-			QFile myFile(filename);
-
-			if(myFile.open(QIODevice::Append | QIODevice::Text ))
-			{
-				std::cout << "File Has Been Created" << std::endl;
-				ui.stackedWidget->setCurrentIndex(1);
-			}
-			else
-			{
-				std::cout << "Failed to Create File" << std::endl;
-			}
-		}
-		ui.stackedWidget->setCurrentIndex(1);
 	}
 	
 }

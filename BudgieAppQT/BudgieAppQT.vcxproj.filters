@@ -53,6 +53,21 @@
     <ClCompile Include="UserData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IOHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataContainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IOHandlerFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIOHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="budgieappqt.h">
@@ -70,6 +85,21 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="UserData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IOHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataContainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IOHandlerFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileIOHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
