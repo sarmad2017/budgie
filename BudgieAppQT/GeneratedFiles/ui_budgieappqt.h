@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'budgieappqt.ui'
 **
-** Created: Thu Apr 13 07:38:11 2017
+** Created: Thu Apr 13 07:47:01 2017
 **      by: Qt User Interface Compiler version 4.7.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -78,7 +78,7 @@ public:
     QPushButton *monthlyButton;
     QPushButton *transportationCostBackButton;
     QPushButton *transportationCostNextButton;
-    QWidget *page;
+    QWidget *saverPage;
     QLabel *amountNeededLabel;
     QLabel *dueDateLabel;
     QLabel *savingLabel;
@@ -88,6 +88,7 @@ public:
     QPushButton *calenderButton;
     QCalendarWidget *calender;
     QPushButton *saveButton;
+    QWidget *loanCalcPage;
     QLabel *heading;
     QLabel *subHeading;
     QMenuBar *menuBar;
@@ -253,38 +254,38 @@ public:
         transportationCostNextButton->setObjectName(QString::fromUtf8("transportationCostNextButton"));
         transportationCostNextButton->setGeometry(QRect(540, 10, 50, 20));
         stackedWidget->addWidget(transportationCostPage);
-        page = new QWidget();
-        page->setObjectName(QString::fromUtf8("page"));
-        amountNeededLabel = new QLabel(page);
+        saverPage = new QWidget();
+        saverPage->setObjectName(QString::fromUtf8("saverPage"));
+        amountNeededLabel = new QLabel(saverPage);
         amountNeededLabel->setObjectName(QString::fromUtf8("amountNeededLabel"));
         amountNeededLabel->setGeometry(QRect(100, 80, 180, 20));
         amountNeededLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        dueDateLabel = new QLabel(page);
+        dueDateLabel = new QLabel(saverPage);
         dueDateLabel->setObjectName(QString::fromUtf8("dueDateLabel"));
         dueDateLabel->setGeometry(QRect(100, 120, 180, 20));
         dueDateLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        savingLabel = new QLabel(page);
+        savingLabel = new QLabel(saverPage);
         savingLabel->setObjectName(QString::fromUtf8("savingLabel"));
         savingLabel->setGeometry(QRect(100, 160, 180, 20));
         savingLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         savingLabel->setIndent(-1);
-        amountNeededValue = new QLineEdit(page);
+        amountNeededValue = new QLineEdit(saverPage);
         amountNeededValue->setObjectName(QString::fromUtf8("amountNeededValue"));
         amountNeededValue->setGeometry(QRect(300, 80, 120, 20));
-        savingValue = new QLineEdit(page);
+        savingValue = new QLineEdit(saverPage);
         savingValue->setObjectName(QString::fromUtf8("savingValue"));
         savingValue->setEnabled(false);
         savingValue->setGeometry(QRect(300, 160, 120, 20));
-        dueDateValue = new QDateEdit(page);
+        dueDateValue = new QDateEdit(saverPage);
         dueDateValue->setObjectName(QString::fromUtf8("dueDateValue"));
         dueDateValue->setEnabled(false);
         dueDateValue->setGeometry(QRect(300, 120, 100, 20));
         dueDateValue->setButtonSymbols(QAbstractSpinBox::NoButtons);
         dueDateValue->setDateTime(QDateTime(QDate(2000, 1, 1), QTime(0, 0, 0)));
-        calenderButton = new QPushButton(page);
+        calenderButton = new QPushButton(saverPage);
         calenderButton->setObjectName(QString::fromUtf8("calenderButton"));
         calenderButton->setGeometry(QRect(400, 120, 20, 20));
-        calender = new QCalendarWidget(page);
+        calender = new QCalendarWidget(saverPage);
         calender->setObjectName(QString::fromUtf8("calender"));
         calender->setEnabled(true);
         calender->setGeometry(QRect(170, 140, 250, 155));
@@ -293,10 +294,13 @@ public:
         calender->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
         calender->setNavigationBarVisible(true);
         calender->setDateEditEnabled(true);
-        saveButton = new QPushButton(page);
+        saveButton = new QPushButton(saverPage);
         saveButton->setObjectName(QString::fromUtf8("saveButton"));
         saveButton->setGeometry(QRect(275, 320, 50, 30));
-        stackedWidget->addWidget(page);
+        stackedWidget->addWidget(saverPage);
+        loanCalcPage = new QWidget();
+        loanCalcPage->setObjectName(QString::fromUtf8("loanCalcPage"));
+        stackedWidget->addWidget(loanCalcPage);
         heading = new QLabel(centralWidget);
         heading->setObjectName(QString::fromUtf8("heading"));
         heading->setGeometry(QRect(0, 0, 600, 40));

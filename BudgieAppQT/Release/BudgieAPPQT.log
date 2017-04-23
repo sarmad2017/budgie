@@ -1,4 +1,4 @@
-﻿Build started 4/13/2017 7:38:11 AM.
+﻿Build started 4/13/2017 7:47:01 AM.
      1>Project "D:\TomoSoft\BudgieAPPQT\BudgieAPPQT\BudgieAPPQT.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Release\BudgieAPPQT.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -33,4 +33,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.06
+Time Elapsed 00:00:03.35

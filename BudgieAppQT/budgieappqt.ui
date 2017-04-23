@@ -577,7 +577,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page">
+    <widget class="QWidget" name="saverPage">
      <widget class="QLabel" name="amountNeededLabel">
       <property name="geometry">
        <rect>
@@ -733,6 +733,7 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="loanCalcPage"/>
    </widget>
    <widget class="QLabel" name="heading">
     <property name="geometry">

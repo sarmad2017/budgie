@@ -40,7 +40,7 @@ void BudgieAPPQT::handleSubmitInfoButton()
 
 void BudgieAPPQT::handleLoanCalculatorButton()
 {
-	ui.loanCalculatorButton->setText("Done");
+	ui.stackedWidget->setCurrentIndex(5);
 }
 
 void BudgieAPPQT::handleTransportationCostButton()
@@ -165,7 +165,7 @@ void BudgieAPPQT::handleLaunchButton()
 				std::cout << "Failed to Create File" << std::endl;
 			}
 		}
-
+		ui.stackedWidget->setCurrentIndex(1);
 	}
 	
 }
