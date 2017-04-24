@@ -28,7 +28,7 @@ void BudgieAPPQT::handleSubmitInfoButton()
 	ioHandler->setValue("billsExpenseValue", ui.billsExpenseValue->text());
 	ioHandler->setValue("otherExpenseValue", ui.otherExpenseValue->text());
 
-	ui.totalIncomeValue->setText("$ "+QString::number(ioHandler->getValue("incomeValue").toDouble()*12));
+	ui.totalIncomeValue->setText("$ "+QString::number(ioHandler->getValue("incomeValue").toDouble()*12,'g',10));
 	ui.monthlyExpenseValue->setText("$ "+QString::number(ioHandler->getValue("livingExpenseValue").toDouble() + ioHandler->getValue("billsExpenseValue").toDouble() + ioHandler->getValue("otherExpenseValue").toDouble()));
 	ui.yearlyExpenseValue->setText("$ "+QString::number((ioHandler->getValue("livingExpenseValue").toDouble() + ioHandler->getValue("billsExpenseValue").toDouble() + ioHandler->getValue("otherExpenseValue").toDouble())*12));
 
@@ -36,15 +36,45 @@ void BudgieAPPQT::handleSubmitInfoButton()
 	ui.stackedWidget->setCurrentIndex(2);
 }
 
-
 void BudgieAPPQT::handleLoanCalculatorButton()
 {
+	int loanType = ioHandler->getValue("loanTypeCar").toInt();
+	if(loanType)
+	{
+		ui.loanTypeCar->setChecked(true);
+		handleCarRadioButton();
+	}
+	else
+	{
+		ui.loanTypeHouse->setChecked(true);
+		handleHouseRadioButton();
+	}
+	ui.loanDurationValue->setValue(ioHandler->getValue("loanDurationValue").toInt());
+	ui.loanAmountValue->setValue(ioHandler->getValue("loanAmountValue").toDouble());
+	ui.interestRateValue->setValue(ioHandler->getValue("interestRateValue").toDouble());
+	ui.monthlyLoanAmountValue->setText(ioHandler->getValue("monthlyLoanAmountValue"));
+
 	ui.stackedWidget->setCurrentIndex(5);
 }
 
 void BudgieAPPQT::handleTransportationCostButton()
 {
-	ui.carTypeRent->setChecked(true);
+	int carType = ioHandler->getValue("carTypeOwn").toInt();
+	if(carType)
+	{
+		ui.carTypeOwn->setChecked(true);
+		handleOwnRadioButton();
+	}
+	else
+	{
+		ui.carTypeRent->setChecked(true);
+		handleRentRadioButton();
+	}
+	ui.monthlyRentalValue->setText(ioHandler->getValue("monthlyRentalValue"));
+	ui.costPerGallonValue->setText(ioHandler->getValue("costPerGallonValue"));
+	ui.distanceTravelledValue->setText(ioHandler->getValue("distanceTravelledValue"));
+	ui.milePerGallonValue->setText(ioHandler->getValue("milePerGallonValue"));
+
 	ui.stackedWidget->setCurrentIndex(3);
 }
 
@@ -52,6 +82,9 @@ void BudgieAPPQT::handleSaverButton()
 {
 	ui.calender->hide();
 	ui.dueDateValue->setDate(QDate::currentDate());
+	ui.dueDateValue->setMinimumDate(QDate::currentDate());
+	ui.amountNeededValue->setText(ioHandler->getValue("amountNeededValue"));
+	ui.savingValue->setText(ioHandler->getValue("savingValue"));
 	ui.stackedWidget->setCurrentIndex(4);
 }
 
@@ -59,24 +92,12 @@ void BudgieAPPQT::handleRentRadioButton()
 {
 	ui.monthlyRentalLabel->show();
 	ui.monthlyRentalValue->show();
-	ui.milePerGallonLabel->move(ui.milePerGallonLabel->x(),ui.milePerGallonLabel->y()+40);
-	ui.milePerGallonValue->move(ui.milePerGallonValue->x(),ui.milePerGallonValue->y()+40);
-	ui.costPerGallonLabel->move(ui.costPerGallonLabel->x(),ui.costPerGallonLabel->y()+40);
-	ui.costPerGallonValue->move(ui.costPerGallonValue->x(),ui.costPerGallonValue->y()+40);
-	ui.distanceTravelledLabel->move(ui.distanceTravelledLabel->x(),ui.distanceTravelledLabel->y()+40);
-	ui.distanceTravelledValue->move(ui.distanceTravelledValue->x(),ui.distanceTravelledValue->y()+40);
 }
 
 void BudgieAPPQT::handleOwnRadioButton()
 {
 	ui.monthlyRentalLabel->hide();
 	ui.monthlyRentalValue->hide();
-	ui.milePerGallonLabel->move(ui.milePerGallonLabel->x(),ui.milePerGallonLabel->y()-40);
-	ui.milePerGallonValue->move(ui.milePerGallonValue->x(),ui.milePerGallonValue->y()-40);
-	ui.costPerGallonLabel->move(ui.costPerGallonLabel->x(),ui.costPerGallonLabel->y()-40);
-	ui.costPerGallonValue->move(ui.costPerGallonValue->x(),ui.costPerGallonValue->y()-40);
-	ui.distanceTravelledLabel->move(ui.distanceTravelledLabel->x(),ui.distanceTravelledLabel->y()-40);
-	ui.distanceTravelledValue->move(ui.distanceTravelledValue->x(),ui.distanceTravelledValue->y()-40);
 }
 
 void BudgieAPPQT::handleDailyButton()
@@ -85,8 +106,22 @@ void BudgieAPPQT::handleDailyButton()
 	if(ui.monthlyRentalValue->isEnabled())
 	{
 		monthlyRental = ui.monthlyRentalValue->text().toDouble();
+		ioHandler->setValue("carTypeRent","1");
+		ioHandler->setValue("carTypeOwn", "0");
+		ioHandler->setValue("monthlyRentalValue", ui.monthlyRentalValue->text());
+	}
+	else
+	{
+		ioHandler->setValue("carTypeRent","0");
+		ioHandler->setValue("carTypeOwn", "1");
+		ioHandler->setValue("monthlyRentalValue", ui.monthlyRentalValue->text());
 	}
 	ui.traveledCostValue->setText(QString::number((monthlyRental/30) + (ui.costPerGallonValue->text().toDouble()*ui.distanceTravelledValue->text().toDouble())/ui.milePerGallonValue->text().toDouble()));
+	ioHandler->setValue("costPerGallonValue", ui.costPerGallonValue->text());
+	ioHandler->setValue("distanceTravelledValue", ui.distanceTravelledValue->text());
+	ioHandler->setValue("milePerGallonValue", ui.milePerGallonValue->text());
+	ioHandler->setValue("traveledCostValue", ui.traveledCostValue->text());
+	ioHandler->storeData();
 }
 
 void BudgieAPPQT::handleWeeklyButton()
@@ -95,8 +130,20 @@ void BudgieAPPQT::handleWeeklyButton()
 	if(!ui.monthlyRentalValue->isHidden())
 	{
 		monthlyRental = ui.monthlyRentalValue->text().toDouble();
+		ioHandler->setValue("carTypeRent","1");
+		ioHandler->setValue("carTypeOwn", "0");
+		ioHandler->setValue("monthlyRentalValue", ui.monthlyRentalValue->text());
+	}
+	else
+	{
+		ioHandler->setValue("carTypeRent","0");
+		ioHandler->setValue("carTypeOwn", "1");
+		ioHandler->setValue("monthlyRentalValue", ui.monthlyRentalValue->text());
 	}
 	ui.traveledCostValue->setText(QString::number(((monthlyRental/30) + (ui.costPerGallonValue->text().toDouble()*ui.distanceTravelledValue->text().toDouble())/ui.milePerGallonValue->text().toDouble())*7));
+	ioHandler->setValue("costPerGallonValue", ui.costPerGallonValue->text());
+	ioHandler->setValue("distanceTravelledValue", ui.distanceTravelledValue->text());
+	ioHandler->setValue("milePerGallonValue", ui.milePerGallonValue->text());
 }
 
 void BudgieAPPQT::handleMonthlyButton()
@@ -105,23 +152,42 @@ void BudgieAPPQT::handleMonthlyButton()
 	if(!ui.monthlyRentalValue->isHidden())
 	{
 		monthlyRental = ui.monthlyRentalValue->text().toDouble();
+		ioHandler->setValue("carTypeRent","1");
+		ioHandler->setValue("carTypeOwn", "0");
+		ioHandler->setValue("monthlyRentalValue", ui.monthlyRentalValue->text());
+	}
+	else
+	{
+		ioHandler->setValue("carTypeRent","0");
+		ioHandler->setValue("carTypeOwn", "1");
+		ioHandler->setValue("monthlyRentalValue", ui.monthlyRentalValue->text());
 	}
 	ui.traveledCostValue->setText(QString::number(((monthlyRental/30) + (ui.costPerGallonValue->text().toDouble()*ui.distanceTravelledValue->text().toDouble())/ui.milePerGallonValue->text().toDouble())*30));
+	ioHandler->setValue("costPerGallonValue", ui.costPerGallonValue->text());
+	ioHandler->setValue("distanceTravelledValue", ui.distanceTravelledValue->text());
+	ioHandler->setValue("milePerGallonValue", ui.milePerGallonValue->text());
 }
 
-void BudgieAPPQT::handleTransportationCostBackButton()
+void BudgieAPPQT::handleBackButton()
 {
 	ui.stackedWidget->setCurrentIndex(2);
 }
 
-void BudgieAPPQT::handleTransportationCostNextButton()
+void BudgieAPPQT::handleNextButton()
 {
 
 }
 
 void BudgieAPPQT::handleCalenderButton()
 {
-	ui.calender->show();
+	if(ui.calender->isVisible())
+	{
+		ui.calender->hide();
+	}
+	else
+	{
+		ui.calender->show();
+	}
 }
 
 void BudgieAPPQT::handleCalender()
@@ -134,8 +200,12 @@ void BudgieAPPQT::handleSaveButton()
 {
 	QDate dNow(QDate::currentDate());
     QDate dEndOfTheWord(2012, 12, 21);
-    int days = dNow.daysTo(ui.dueDateValue->date());
+    int days = dNow.daysTo(ui.dueDateValue->date()) + 1;
 	ui.savingValue->setText(QString::number(ui.amountNeededValue->text().toDouble()/days));
+	ioHandler->setValue("amountNeededValue",ui.amountNeededValue->text());
+	ioHandler->setValue("dueDateValue", ui.dueDateValue->date().toString());
+	ioHandler->setValue("savingValue", ui.savingValue->text());
+	ioHandler->storeData();
 }
 
 void BudgieAPPQT::handleLaunchButton()
@@ -156,4 +226,46 @@ void BudgieAPPQT::handleLaunchButton()
 		}
 	}
 	
+}
+
+void BudgieAPPQT::handleHouseRadioButton()
+{
+	ui.loanDurationValue->setMinimum(15);
+	ui.loanDurationValue->setMaximum(30);
+	ui.loanDurationValue->setSingleStep(15);
+	
+	ui.loanDurationValue->setValue((ui.loanDurationValue->value()/15)*15);
+}
+
+void BudgieAPPQT::handleCarRadioButton()
+{
+	ui.loanDurationValue->setMinimum(1);
+	ui.loanDurationValue->setMaximum(74);
+	ui.loanDurationValue->setSingleStep(1);
+	
+	ui.loanDurationValue->setValue(ui.loanDurationValue->value());
+}
+
+void BudgieAPPQT::handleCalculateLoanButton()
+{
+	int numberOfMonths = 0;
+	if(ui.loanTypeHouse->isChecked())
+	{
+		numberOfMonths = 12*ui.loanDurationValue->value();
+		ioHandler->setValue("loanTypeHouse","1");
+		ioHandler->setValue("loanTypeCar","0");
+	}
+	else
+	{
+		numberOfMonths = ui.loanDurationValue->value();
+		ioHandler->setValue("loanTypeHouse","0");
+		ioHandler->setValue("loanTypeCar","1");
+	}
+	ui.monthlyLoanAmountValue->setText(QString::number((ui.loanAmountValue->value()*(100+ui.interestRateValue->value()))/(100 * numberOfMonths)));
+
+	ioHandler->setValue("loanAmountValue",ui.loanAmountValue->text());
+	ioHandler->setValue("loanDurationValue",ui.loanDurationValue->text());
+	ioHandler->setValue("interestRateValue",ui.interestRateValue->text());
+	ioHandler->setValue("monthlyLoanAmountValue",ui.monthlyLoanAmountValue->text());
+	ioHandler->storeData();
 }

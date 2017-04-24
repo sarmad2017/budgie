@@ -30,12 +30,15 @@ private slots:
 	void handleDailyButton();
 	void handleWeeklyButton();
 	void handleMonthlyButton();
-	void handleTransportationCostBackButton();
-	void handleTransportationCostNextButton();
+	void handleBackButton();
+	void handleNextButton();
 	void handleCalenderButton();
 	void handleCalender();
 	void handleSaveButton();
 	void handleLaunchButton();
+	void handleHouseRadioButton();
+	void handleCarRadioButton();
+	void handleCalculateLoanButton();
 };
 
 #endif // BUDGIEAPPQT_H
