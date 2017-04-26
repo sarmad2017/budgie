@@ -1,4 +1,5 @@
 #include "budgieappqt.h"
+#include <qmessagebox.h>
 
 #include <XMLParser.h>
 
@@ -6,14 +7,9 @@ BudgieAPPQT::BudgieAPPQT(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags)
 {
 	ui.setupUi(this);
-	userData = new UserData();
-	/*if(userData)
-	{
-		ui.incomeValue->setText(QString::number(userData->getMonthlyIncome()));
-		ui.livingExpenseValue->setText(QString::number(userData->getMonthlyLivingExpense()));
-		ui.billsExpenseValue->setText(QString::number(userData->getMonthlyBillExpense()));
-		ui.otherExpenseValue->setText(QString::number(userData->getMonthlyOtherExpense()));
-	}*/
+	ioHandler = ioHandlerFactory.getIOHandler();
+	ioHandler->loadUsers();
+	ioHandler->populateUsers(ui.emailComboBox);
 }
 
 BudgieAPPQT::~BudgieAPPQT()
@@ -214,8 +210,20 @@ void BudgieAPPQT::handleLaunchButton()
 	QString filename = ui.emailValue->text();
 	if(filename != "")
 	{
+		//check for duplicates
+		if(ioHandler->IsUserExists(filename))
+		{
+			QMessageBox msgBox;
+			msgBox.setText("The document has been modified.");
+			msgBox.exec();
+			return;
+		}
+		else
+		{
+			ioHandler->addUser(filename);
+			ioHandler->storeUsers();
+		}
 		
-		ioHandler = ioHandlerFactory.getIOHandler();
 		if(ioHandler->makeConnection(&filename))
 		{
 			ui.incomeValue->setText(ioHandler->getValue("incomeValue"));
@@ -268,4 +276,40 @@ void BudgieAPPQT::handleCalculateLoanButton()
 	ioHandler->setValue("interestRateValue",ui.interestRateValue->text());
 	ioHandler->setValue("monthlyLoanAmountValue",ui.monthlyLoanAmountValue->text());
 	ioHandler->storeData();
+}
+
+void BudgieAPPQT::handleViewButton()
+{
+	QString filename = ui.emailComboBox->currentText();
+	if(ioHandler->makeConnection(&filename))
+	{
+		ui.incomeValue->setText(ioHandler->getValue("incomeValue"));
+		ui.livingExpenseValue->setText(ioHandler->getValue("livingExpenseValue"));
+		ui.billsExpenseValue->setText(ioHandler->getValue("billsExpenseValue"));
+		ui.otherExpenseValue->setText(ioHandler->getValue("otherExpenseValue"));
+		ui.stackedWidget->setCurrentIndex(1);
+	}
+}
+
+void BudgieAPPQT::handleDeleteButton()
+{
+	int fileIndex = ui.emailComboBox->currentIndex();
+	QString filename = ui.emailComboBox->currentText();
+	ui.emailComboBox->removeItem(fileIndex);
+	ioHandler->removeUser(fileIndex-1);
+	ioHandler->storeUsers();
+}
+
+void BudgieAPPQT::handleEmailComboBox()
+{
+	int index = ui.emailComboBox->currentIndex();
+	bool display = false;
+	if(index)
+	{
+		display = true;
+	}
+	ui.emailValue->setDisabled(display);
+	ui.launchButton->setDisabled(display);
+	ui.viewButton->setEnabled(display);
+	ui.deleteButton->setEnabled(display);
 }

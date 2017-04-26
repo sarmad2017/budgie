@@ -11,9 +11,16 @@ public:
 	void setValue(QString tag, QString value);
 	void storeData();
 	bool makeConnection(void*);
+	void addUser(QString);
+	void removeUser(int);
+	void storeUsers();
+	void loadUsers();
+	bool IsUserExists(QString);
+	void populateUsers(QComboBox* list);
 
 private:
 	bool loadData();
 	QString file;
+
 };
 

@@ -51,7 +51,7 @@ bool FileIOHandler::loadData()
 		return false;
 	}
 	
-	userdata = new UserData();
+	//userdata = new UserData();
 	QTextStream in(&file);
 
 	while(!in.atEnd()) {
@@ -62,4 +62,51 @@ bool FileIOHandler::loadData()
 
 	file.close();
 	return true;
+}
+
+void FileIOHandler::loadUsers()
+{
+	QFile file("users.txt");
+	if(!file.open(QIODevice::ReadWrite)) {
+		QMessageBox::information(0, "error", file.errorString());
+	}
+	
+	userdata = new UserData();
+	QTextStream in(&file);
+
+	while(!in.atEnd()) {
+		QString line = in.readLine();    
+		QStringList fields = line.split(":");
+		userdata->addUser(fields[1]);
+	}
+
+	file.close();
+}
+
+void FileIOHandler::addUser(QString email)
+{
+	userdata->addUser(email);
+}
+void FileIOHandler::removeUser(int index)
+{
+	userdata->removeUser(index);
+}
+
+void FileIOHandler::storeUsers()
+{
+	QFile file("users.txt");
+	file.open(QIODevice::WriteOnly | QIODevice::Text);
+	QTextStream stream(&file); //stream of information
+	stream << userdata->usersList();
+	file.close();
+}
+
+bool FileIOHandler::IsUserExists(QString username)
+{
+	return userdata->IsUserExists(username);
+}
+
+void FileIOHandler::populateUsers(QComboBox* list)
+{
+	userdata->populateUsers(list);
 }

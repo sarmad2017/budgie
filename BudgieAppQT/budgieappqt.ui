@@ -43,7 +43,7 @@
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>60</y>
+        <y>170</y>
         <width>150</width>
         <height>20</height>
        </rect>
@@ -59,16 +59,22 @@
       </property>
      </widget>
      <widget class="QLineEdit" name="emailValue">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>220</x>
-        <y>60</y>
+        <y>170</y>
         <width>200</width>
         <height>20</height>
        </rect>
       </property>
      </widget>
      <widget class="QPushButton" name="launchButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>275</x>
@@ -79,6 +85,72 @@
       </property>
       <property name="text">
        <string>Launch</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="emailComboBox">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>70</y>
+        <width>200</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>--Add New--</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="selectEmailLabel">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>70</y>
+        <width>150</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>Select Your Email</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="deleteButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>110</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Delete</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="viewButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>110</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>View</string>
       </property>
      </widget>
     </widget>
@@ -1333,6 +1405,54 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>viewButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleViewButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>244</x>
+     <y>257</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deleteButton</sender>
+   <signal>released()</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleDeleteButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>394</x>
+     <y>257</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>emailComboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>BudgieAPPQTClass</receiver>
+   <slot>handleEmailComboBox()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>212</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>handleSubmitInfoButton()</slot>
@@ -1353,5 +1473,8 @@
   <slot>handleHouseRadioButton()</slot>
   <slot>handleCarRadioButton()</slot>
   <slot>handleCalculateLoanButton()</slot>
+  <slot>handleViewButton()</slot>
+  <slot>handleDeleteButton()</slot>
+  <slot>handleEmailComboBox()</slot>
  </slots>
 </ui>

@@ -39,6 +39,9 @@ private slots:
 	void handleHouseRadioButton();
 	void handleCarRadioButton();
 	void handleCalculateLoanButton();
+	void handleViewButton();
+	void handleDeleteButton();
+	void handleEmailComboBox();
 };
 
 #endif // BUDGIEAPPQT_H

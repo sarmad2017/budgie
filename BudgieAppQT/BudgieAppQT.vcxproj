@@ -92,7 +92,6 @@
     <ClCompile Include="IOHandlerFactory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="UserData.cpp" />
-    <ClCompile Include="XMLParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="budgieappqt.h">
@@ -126,7 +125,6 @@
     <ClInclude Include="IOHandler.h" />
     <ClInclude Include="IOHandlerFactory.h" />
     <ClInclude Include="UserData.h" />
-    <ClInclude Include="XMLParser.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="budgieappqt.qrc">
